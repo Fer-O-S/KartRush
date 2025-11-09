@@ -73,8 +73,22 @@ public class GameFlowManager : MonoBehaviour
     // Función para mostrar selecciones actuales (útil para debug)
     public void ShowCurrentSelections()
     {
+        string nombrePersonaje = (GameState.SelectedCharacterID == 0) ? "Pacheco Colorido" : "Pacheco Blanco";
+        string nombreCarro = (GameState.SelectedKartID == 0) ? "Carro Rojo/Amarillo" : "Carro Azul";
+        
         Debug.Log($"📋 SELECCIONES ACTUALES:");
-        Debug.Log($"   Personaje: {GameState.SelectedCharacterID}");
-        Debug.Log($"   Carro: {GameState.SelectedKartID}");
+        Debug.Log($"   Personaje: {nombrePersonaje} (ID: {GameState.SelectedCharacterID})");
+        Debug.Log($"   Carro: {nombreCarro} (ID: {GameState.SelectedKartID})");
+    }
+    
+    // Función para obtener nombres de selecciones (útil para UI)
+    public string GetSelectedCharacterName()
+    {
+        return (GameState.SelectedCharacterID == 0) ? "Pacheco Colorido" : "Pacheco Blanco";
+    }
+    
+    public string GetSelectedKartName()
+    {
+        return (GameState.SelectedKartID == 0) ? "Carro Rápido" : "Carro Resistente";
     }
 }
